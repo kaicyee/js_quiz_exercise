@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game of Throne Quiz</title>
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+  
+  <main class="quiz-card">
+
+   <!--Intro opening button-->
+      <div class="quiz-card">
+      <div class='txt-center'>
+        <h1>The Game of Thrones quiz</h1>
+        <img class ="intro-splash" src="./assets/got_intro02.jpg" width="350" height="195" alt="Game of Thrones intro image" />
+        <p></p>
+        <button class='' id='start-quiz'>Let The Game of Thrones begin!</button> <!--Button is hidden after quiz is initiated. Hide using 'hidden' class.-->
+      </div>
+    
+   <!--Testing first function, begins quiz-->
+    <section id='my-quiz' class='question hidden'>
+        <h2 class="js-quiz-form"></h2>
+        <form id="question-form">
+          <label class='answer'>
+            <input type="radio" name="answerChoice" required>
+            <span></span>
+          </label>
+          <label class='answer'>
+            <input type="radio" name="answerChoice" required>
+            <span></span>
+          </label>
+          <label class='answer'>
+            <input type="radio" name="answerChoice" required>
+            <span></span>
+          </label>
+          <label class='answer'>
+            <input type="radio" name="answerChoice" required>
+            <span></span>
+          </label>
+          <button id='submit-answer' type="submit" data-popup-open="popup-feedback">Submit answer</button>
+          </form>
+   </section>
+   
+   <div class="popup" data-popup="popup-feedback">
+          <div class="popup-inner">
+              <h2 class='txt-center'></h2>
+              <img src="" alt="">
+              <a id='close-feedback-modal'class="popup-close" data-popup-close="popup-feedback" href="#">X</a>
+          </div>
+      </div>
+      <div class="js-final-results txt-center"></div> <!--Display final results of the quiz to the user once all questions are answered.-->
+      <div class="txt-center">
+        <button class='hidden' id='start-quiz-over'>Start over</button> <!--Button is hidden until all questions are answered. Hide using 'hidden' class.-->
+      </div>
+    
+  </main>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="index.js"></script> 
+</body>
+</html>

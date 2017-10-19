@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: 'IM Fell DW Pica', serif;
+	background-color: #8b0736;
+}
+
+main {	
+	width: 600px;
+	margin: auto;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	background-color: white;
+	border: 3px solid #666666;
+	border-radius:3px;
+}
+
+.intro-splash {
+    margin-top: 5px;
+}
+
+.answer {
+	display: list-item;
+	list-style-type: none;
+	background-color: white;
+    padding: 7px;
+}
+
+.current-score{
+  margin-left: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+#start-quiz {
+  font-family: 'IM Fell DW Pica', serif;
+  color: white;
+  background-color: #8b0736;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.txt-center{
+  text-align: center;
+}
+
+#start-quiz-over {
+  background-color: orangered;
+  margin: 0 auto 0 auto;
+
+}
+
+#submit-answer {
+  font-family: 'IM Fell DW Pica', serif;
+  font-size: 14px;
+  background-color: #8b0736;
+  color: white;
+  margin-top: 5px;
+  margin-left: 11px;
+  height: 25px; 
+}
+
+#start-quiz-over {
+  display:none;
+/*  font-family: 'IM Fell DW Pica', serif;
+  background-color: orange;
+  margin: 0 auto 0 auto;*/
+
+}
+
+.popup-inner img {
+  display: block;
+  margin: 0 auto 0 auto;
+  max-width:100%;
+  max-height:100%;
+}
+
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:90%;
+    padding:28px;
+    padding-bottom: 55px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:3px;
+    background:#fff;
+}
+
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    left: -30px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(220,77,27,0.8);
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+}
+
+/*MOBILE STYLES*/
+@media only screen and (max-width: 640px) {
+  .quiz-card {
+    width: 100%;
+  }
+  h1{
+    margin-top: 20px;
+  }
+}
