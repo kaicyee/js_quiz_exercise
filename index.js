@@ -5,7 +5,7 @@ $(function () {
   renderQuestionCard();
 });
 
-var state = {
+let state = {
   questions: [
     {
       question: 'Who is Ned Stark\'s bastard son?',
@@ -140,7 +140,7 @@ function checkAnswer(userChoice) {
     state.currentQuestionIndex++;
   }
   if (state.currentQuestionIndex == state.questions.length) {
-    renderFinalResults()
+    renderFinalResults();
   } else {
     renderQuestionCard();
   }
