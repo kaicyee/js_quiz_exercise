@@ -25,17 +25,17 @@ let state = {
     },
     {
       question: 'Who lives beyond the great wall?',
-      answers: ['The Chinese', 
-                'The Wildlings',
+      answers: ['The White Walkers',                 
                 'The Mongols',
-                'The White Walkers'],
+                'The Wildlings',
+                'The Chinese'],
       correctAnswer: 'The Wildlings'
     },
     {
       question: 'What does it mean to take the black?',
-      answers: ['The opposite of taking the white',
-                'Joining the night\'s watch',
+      answers: ['The opposite of taking the white',                
                 'Drinking dark ale',
+                'Joining the night\'s watch',
                 'Joining the peace corp'],
       correctAnswer: 'Joining the night\'s watch'
     },
@@ -58,16 +58,16 @@ let state = {
     {
       question: 'Arya Stark mastered the ability to become a ______',
       answers: ['Direwolf',
-                'Faceless Man',
+                'Septa',
                 'wife',
-                'Septa'],
+                'Faceless Man'],
       correctAnswer: 'Faceless Man'
     },
     {
       question: 'Sansa Stark is the Lady of __________',
       answers: ['the Night',
-                'Winterfell',
                 'Shanghai',
+                'Winterfell',                
                 'Casterly Rock'],
       correctAnswer: 'Winterfell'
     },
@@ -99,18 +99,22 @@ function resetQuiz() {
   state.currentQuestionIndex = 0;
 }
 
+//renders order of prompt and questions
 function renderQuestionCard() {
   var currentQuestionObj = state.questions[state.currentQuestionIndex];
   renderQuestionPrompt();
   renderQuestionChoices(currentQuestionObj.answers);
 }
 
+//renders prompt for which question the user is on
 function renderQuestionPrompt() {
   var progressHTML = '<span>(' + (state.currentQuestionIndex + 1) + '/' + state.questions.length + ')</span>'
   var questionText = state.questions[state.currentQuestionIndex].question;
   $('.js-quiz-form').html(progressHTML + ' ' +questionText);
+
 }
 
+//renders questions
 function renderQuestionChoices(answers) { //array
   $('#question-form label').each(function (index, label) {
     $(this).find('input').attr('value', answers[index]);
@@ -119,6 +123,7 @@ function renderQuestionChoices(answers) { //array
   });
 }
 
+//renders final result on final screen
 function renderFinalResults() {
   $('#my-quiz').addClass('hidden');
   $('#start-quiz-over').removeClass('hidden');
@@ -127,6 +132,7 @@ function renderFinalResults() {
   handleQuizRestart();
 }
 
+//evaluates answers, then places in modal
 function checkAnswer(userChoice) {
   var correctChoice = state.questions[state.currentQuestionIndex].correctAnswer;
   if (userChoice == correctChoice) {
@@ -146,6 +152,7 @@ function checkAnswer(userChoice) {
   }
 }
 
+//renders feedback for answer, only blanket correct, incorrect or no response
 function renderQuestionFeedback(boolean) {
   var feedback = $('.popup-inner');
   if (boolean === true){
