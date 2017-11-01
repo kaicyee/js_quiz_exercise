@@ -42,7 +42,8 @@ main {
   background-color: #8b0736;
   text-align: center;
   font-size: 14px;
-  padding: 8px;
+  padding: 8px 12px;
+  border-radius: 20px;
 }
 
 .txt-center{
@@ -62,7 +63,9 @@ main {
   color: white;
   margin-top: 5px;
   margin-left: 11px;
-  height: 25px; 
+  height: 25px;
+  padding: 2px 12px;
+  border-radius: 15px; 
 }
 
 #start-quiz-over {
