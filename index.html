@@ -15,10 +15,9 @@
   <main class="quiz-card">
 
    <!--Intro opening button-->
-      <div class="quiz-card">
-      <div class='txt-center'>
-        <h1>The Game of Thrones quiz</h1>
-        <img class ="intro-splash" src="./assets/got_intro02.jpg" width="350" height="195" alt="Game of Thrones intro image" />
+      <div class="quiz-intro">
+      <h1>The Game of Thrones quiz</h1>
+      <div class="splash"><img class ="intro-splash" src="./assets/got_intro02.jpg" width="350" height="195" alt="Game of Thrones intro image" /></div>
         <p></p>
         <button class='' id='start-quiz'>Let The Game of Thrones begin!</button> <!--Button is hidden after quiz is initiated. Hide using 'hidden' class.-->
       </div>
@@ -46,11 +45,12 @@
           <button id='submit-answer' type="submit" data-popup-open="popup-feedback">Submit answer</button>
           </form>
    </section>
-   
+
+      <!--Initiates modals-->
    <div class="popup" data-popup="popup-feedback">
           <div class="popup-inner">
+              <img src="" alt="whimsical pop-up feedback image">
               <h2 class='txt-center'></h2>
-              <img src="" alt="">
               <a id='close-feedback-modal'class="popup-close" data-popup-close="popup-feedback" href="#">X</a>
           </div>
       </div>
