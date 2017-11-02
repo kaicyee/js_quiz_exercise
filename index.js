@@ -13,7 +13,8 @@ let state = {
                 'Ramsey Snow',
                 'Jon Snow',
                 'Alistair Cooke'],
-      correctAnswer: 'Jon Snow'
+      correctAnswer: 'Jon Snow',
+      explanation: 'Jon Snow is Ned Stark\'s bastard son who later becomes the king of the north'
     },
     {
       question: 'Who is Queen Cersei\'s brother?',
@@ -102,6 +103,7 @@ function renderQuestionCard() {
   let currentQuestionObj = state.questions[state.currentQuestionIndex];
   renderQuestionPrompt();
   renderQuestionChoices(currentQuestionObj.answers);
+  renderCurrentResults(); // not working, attempting to put in current score
 }
 
 //renders prompt for which question the user is on
@@ -120,12 +122,20 @@ function renderQuestionChoices(answers) { //array
   });
 }
 
+//not working, attempting to find a way to put in current score
+function renderCurrentResults() {
+  $('#my-quiz');
+  $('#start-quiz-over');
+  let element = $('.js-current-results');
+  element.html('<h2>' + 'Keep going! You got ' + state.correctCount + ' out of ' + state.questions.length + ' correct!' + '</h2>');
+}
+
 //renders final result on final screen
 function renderFinalResults() {
   $('#my-quiz').addClass('hidden');
   $('#start-quiz-over').removeClass('hidden');
   let element = $('.js-final-results');
-  element.html('<h2>' + 'You got ' + state.correctCount + ' out of ' + state.questions.length + ' right!' + '</h2>');
+  element.html('<h2>' + 'Well done! You received ' + state.correctCount + ' out of ' + state.questions.length + ' correct!' + '</h2>');
   handleQuizRestart();
 }
 
@@ -149,6 +159,13 @@ function checkAnswer(userChoice) {
   }
 }
 
+//Implementing explanation function
+// function setupExplanation() {
+//     $('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentQuestionIndex]['explanation']));
+//              // score++;
+// alert('setupExplanation()')
+// }
+
 //renders feedback for answer, only blanket correct, incorrect or no response
 function renderQuestionFeedback(boolean) {
   let feedback = $('.popup-inner');
@@ -158,7 +175,7 @@ function renderQuestionFeedback(boolean) {
   } else if (boolean === false){
     feedback.find('h2').text('Wrong!! When you play the game of thrones, you win or you die. There is no middle ground.');
     feedback.find('img').attr('src', './assets/gifs/fire_breathing_dragon05.gif');
-  } else if (boolean == 'unanswered'){
+  } else if (boolean === 'unanswered'){
     feedback.find('h2').text('DO SOMETHING!');
     feedback.find('img').attr('src', './assets/gifs/do-you-understand.gif');
   }
@@ -169,6 +186,16 @@ function beginQuiz() {
   $('#start-quiz').click(function (e) {
     $('#my-quiz').removeClass('hidden');
     $('#start-quiz').addClass('hidden');
+  });
+}
+
+function handleQuizRestart() {
+  $('#start-quiz-over').on('click', function (e) {
+    $('#my-quiz').removeClass('hidden');
+    $('#start-quiz-over').addClass('hidden');
+    $('.js-final-results').text('');
+    resetQuiz();
+    renderQuestionCard();
   });
 }
 
