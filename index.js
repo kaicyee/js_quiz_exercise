@@ -111,6 +111,8 @@ function renderQuestionPrompt() {
   let progressHTML = '<span>(' + (state.currentQuestionIndex + 1) + '/' + state.questions.length + ')</span>'
   let questionText = state.questions[state.currentQuestionIndex].question;
   $('.js-quiz-form').html(progressHTML + ' ' +questionText);
+  console.log(state.correctCount + "out of" + state.questions.length + "correct")
+  $('.correct').html(state.correctCount + "out of" + state.questions.length + "correct");
 }
 
 //renders questions
@@ -169,12 +171,15 @@ function checkAnswer(userChoice) {
 //renders feedback for answer, only blanket correct, incorrect or no response
 function renderQuestionFeedback(boolean) {
   let feedback = $('.popup-inner');
+
   if (boolean === true){
     feedback.find('h2').text('Correct! You are still alive so keep going!');
     feedback.find('img').attr('src', './assets/gifs/dancing-tyrion.gif');
   } else if (boolean === false){
-    feedback.find('h2').text('Wrong!! When you play the game of thrones, you win or you die. There is no middle ground.');
+    feedback.find('h2').text(`Wrong the correct answer is ${state.questions[state.currentQuestionIndex].correctAnswer}. ${state.questions[state.currentQuestionIndex].explanation}`);
     feedback.find('img').attr('src', './assets/gifs/fire_breathing_dragon05.gif');
+    console.log(state.questions[state.currentQuestionIndex].correctAnswer)
+    console.log(state.questions[state.currentQuestionIndex].explanation)
   } else if (boolean === 'unanswered'){
     feedback.find('h2').text('DO SOMETHING!');
     feedback.find('img').attr('src', './assets/gifs/do-you-understand.gif');
