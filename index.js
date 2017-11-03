@@ -94,7 +94,7 @@ let state = {
 };
 
 function resetQuiz() {
-  state.correctCount = 0
+  state.correctCount = 0;
   state.currentQuestionIndex = 0;
 }
 
@@ -112,7 +112,7 @@ function renderQuestionPrompt() {
   let questionText = state.questions[state.currentQuestionIndex].question;
   $('.js-quiz-form').html(progressHTML + ' ' +questionText);
   console.log(state.correctCount + "out of" + state.questions.length + "correct")
-  $('.correct').html(state.correctCount + "out of" + state.questions.length + "correct");
+  $('#correctTrack').html(state.correctCount + " " + "out of" + " " + state.questions.length + " " + "correct");
 }
 
 //renders questions
@@ -121,6 +121,7 @@ function renderQuestionChoices(answers) { //array
     $(this).find('input').attr('value', answers[index]);
     $(this).find('input').prop('checked', false); //render choices without previous selection.
     $(this).find('span').text(answers[index]);
+    
   });
 }
 
@@ -161,14 +162,7 @@ function checkAnswer(userChoice) {
   }
 }
 
-//Implementing explanation function
-// function setupExplanation() {
-//     $('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentQuestionIndex]['explanation']));
-//              // score++;
-// alert('setupExplanation()')
-// }
-
-//renders feedback for answer, only blanket correct, incorrect or no response
+//renders feedback for answer, correct answer is given when user choses incorrectly
 function renderQuestionFeedback(boolean) {
   let feedback = $('.popup-inner');
 
@@ -191,6 +185,7 @@ function beginQuiz() {
   $('#start-quiz').click(function (e) {
     $('#my-quiz').removeClass('hidden');
     $('#start-quiz').addClass('hidden');
+    $('#correctTrack').removeClass('hidden');
   });
 }
 
