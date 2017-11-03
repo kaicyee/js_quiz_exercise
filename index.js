@@ -22,7 +22,7 @@ let state = {
                 'Jaime Lannister',
                 'George RR Martin',
                 'Joffrey Baratheon'],
-      correctAnswer: 'Jaime Lannister' 
+      correctAnswer: 'Jaime Lannister'
     },
     {
       question: 'Who lives beyond the great wall?',
@@ -176,7 +176,7 @@ function renderQuestionFeedback(boolean) {
     feedback.find('h2').text('Correct! You are still alive so keep going!');
     feedback.find('img').attr('src', './assets/gifs/dancing-tyrion.gif');
   } else if (boolean === false){
-    feedback.find('h2').text(`Wrong the correct answer is ${state.questions[state.currentQuestionIndex].correctAnswer}. ${state.questions[state.currentQuestionIndex].explanation}`);
+    feedback.find('h2').text(`Wrong! The correct answer is ${state.questions[state.currentQuestionIndex].correctAnswer}`);
     feedback.find('img').attr('src', './assets/gifs/fire_breathing_dragon05.gif');
     console.log(state.questions[state.currentQuestionIndex].correctAnswer)
     console.log(state.questions[state.currentQuestionIndex].explanation)
