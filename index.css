@@ -4,6 +4,7 @@
 
 body {
 	font-family: 'IM Fell DW Pica', serif;
+  font-size: 16px;
 	background-color: #8b0736;
 }
 
@@ -23,7 +24,11 @@ main {
 h1 {
     text-align: left;
     border-bottom: 1px solid #999;
- }   
+}
+
+ input {
+    margin-right: 8px;
+}  
 
 .splash {
     width: 100%;

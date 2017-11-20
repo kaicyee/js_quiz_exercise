@@ -12,7 +12,7 @@
 </head>
 <body>
   
-  <main class="quiz-card">
+  <main class="quiz-card" role="main">
 
    <!--Intro opening button-->
       <div class="quiz-intro">
@@ -25,25 +25,28 @@
    <!--Testing first function, begins quiz-->
     <section id='my-quiz' class='question hidden'>
         <h2 class="js-quiz-form"></h2>
+        <div role="radiogroup" aria-labelledby="question-form">
+        <!-- placing aria-labelledby in a div allowed it to be accessible; not in the form -->
         <form id="question-form">
           <label class='answer'>
-            <input type="radio" name="answerChoice" required>
+            <input type="radio" aria-labelledby="question-form" name="answerChoice" required>
             <span></span>
           </label>
           <label class='answer'>
-            <input type="radio" name="answerChoice" required>
+            <input type="radio" aria-labelledby="question-form" name="answerChoice" required>
             <span></span>
           </label>
           <label class='answer'>
-            <input type="radio" name="answerChoice" required>
+            <input type="radio" aria-labelledby="question-form" name="answerChoice" required>
             <span></span>
           </label>
           <label class='answer'>
-            <input type="radio" name="answerChoice" required>
+            <input type="radio" aria-labelledby="question-form" name="answerChoice" required>
             <span></span>
           </label>
-          <button id='submit-answer' type="submit" data-popup-open="popup-feedback">Submit answer</button>
+          <button id='submit-answer' type="submit" data-popup-open="popup-feedback" >Submit answer</button>
           </form>
+        </div>
    </section>
    <section id='correctTrack' class='hidden'>
    </section>
